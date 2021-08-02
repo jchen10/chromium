@@ -122,7 +122,7 @@ public class AwSettings {
     private float mInitialPageScalePercent;
     private boolean mSpatialNavigationEnabled;  // Default depends on device features.
     private boolean mEnableSupportedHardwareAcceleratedFeatures;
-    private int mMixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW;
+    private int mMixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
     private boolean mCSSHexAlphaColorEnabled;
     private boolean mScrollTopLeftInteropEnabled;
     private boolean mWillSuppressErrorPage;
