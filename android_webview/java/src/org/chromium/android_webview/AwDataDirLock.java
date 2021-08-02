@@ -79,17 +79,10 @@ abstract class AwDataDirLock {
 
             // We failed to get the lock even after retrying.
             // Many existing apps rely on this even though it's known to be unsafe.
-            // Make it fatal when on P for apps that target P or higher
             String error = getLockFailureReason(sLockFile);
-            boolean dieOnFailure = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
-                    && appContext.getApplicationInfo().targetSdkVersion >= Build.VERSION_CODES.P;
-            if (dieOnFailure) {
-                throw new RuntimeException(error);
-            } else {
-                Log.w(TAG, error);
-                // Record an attempt count of 0 to indicate that we proceeded without the lock.
-                recordLockAttempts(0);
-            }
+            Log.w(TAG, error);
+            // Record an attempt count of 0 to indicate that we proceeded without the lock.
+            recordLockAttempts(0);
         }
     }
 
